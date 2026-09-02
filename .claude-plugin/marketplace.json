@@ -1,0 +1,26 @@
+{
+  "name": "customer-magic",
+  "description": "Customer Magic — the workbench your harness is missing. Revenue work that persists between sessions.",
+  "owner": {
+    "name": "Ben Sufiani",
+    "url": "https://customermagic.ai"
+  },
+  "plugins": [
+    {
+      "name": "customer-magic",
+      "displayName": "Customer Magic",
+      "source": "./",
+      "description": "Set up your revenue sources — inbox, calendar, CRM and billing — in the agent you already work in, verifying each connection actually returns your real data. Includes the Customer Magic connection, so opportunities you find persist between sessions instead of dying with the chat.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Ben Sufiani",
+        "url": "https://customermagic.ai"
+      },
+      "homepage": "https://customermagic.ai/skill",
+      "repository": "https://github.com/bensufiani/customer-magic-plugin",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": ["sales", "revenue", "crm", "pipeline", "outreach", "mcp"]
+    }
+  ]
+}

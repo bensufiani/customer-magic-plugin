@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "customer-magic": {
+      "type": "http",
+      "url": "https://customermagic.ai/api/mcp"
+    }
+  }
+}

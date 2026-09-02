@@ -1,0 +1,21 @@
+{
+  "name": "customer-magic",
+  "displayName": "Customer Magic",
+  "description": "Set up your revenue sources — inbox, calendar, CRM and billing — in the agent you already work in, verifying each connection actually returns your real data. Includes the Customer Magic connection, so opportunities you find persist between sessions instead of dying with the chat.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Ben Sufiani",
+    "url": "https://customermagic.ai"
+  },
+  "homepage": "https://customermagic.ai/skill",
+  "repository": "https://github.com/bensufiani/customer-magic-plugin",
+  "license": "MIT",
+  "keywords": [
+    "sales",
+    "revenue",
+    "crm",
+    "pipeline",
+    "outreach",
+    "mcp"
+  ]
+}
