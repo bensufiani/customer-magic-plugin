@@ -14,7 +14,7 @@ sessions instead of dying with the chat.
   time, and checks each one actually returns your real data before moving on.
   That check is the step everybody skips, and it's why most setups quietly
   produce confident nonsense.
-- **Seven playbooks** — jobs your assistant runs on your Customer Magic board,
+- **Eight playbooks** — jobs your assistant runs on your Customer Magic board,
   each started with one sentence:
   [bring a list in](https://customermagic.ai/playbooks/import-a-list),
   [keep a CRM in step](https://customermagic.ai/playbooks/crm-sync),
@@ -22,8 +22,11 @@ sessions instead of dying with the chat.
   [after a conversation](https://customermagic.ai/playbooks/after-a-conversation),
   [weekly review](https://customermagic.ai/playbooks/weekly-review),
   [close out an event](https://customermagic.ai/playbooks/event-close-out),
-  [hand over deals](https://customermagic.ai/playbooks/hand-over).
+  [hand over deals](https://customermagic.ai/playbooks/hand-over),
+  [review what comes in](https://customermagic.ai/playbooks/incoming-review).
   Each one shows you what it is about to do before it writes anything.
+- **Two worker playbooks**, the scout and the fixer, which a scheduled run
+  follows once the incoming review is set up.
 - **The Customer Magic connection** — so the opportunities you find are held
   somewhere, ranked, and still there tomorrow.
 
