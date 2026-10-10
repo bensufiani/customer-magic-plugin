@@ -31,6 +31,29 @@ to be complete.
 
 ---
 
+## Step 0 · Check you can reach it
+
+Before anything else, check that this session can actually call
+`get_incoming_job`. A connection that was set up before the incoming review
+existed may still show the old list of tools, and some harnesses cannot refresh
+it from inside a session.
+
+If the tool is not there, do not work around it and do not carry on from
+memory. Get a way in first:
+
+1. Ask the user to create a workspace API key that may write, under
+   Settings → API keys in Customer Magic.
+2. Put it in your environment as `CUSTOMER_MAGIC_API_KEY`. Never print it.
+3. Use the one-file command-line client for every call in this playbook:
+
+```
+curl -fsSL https://customermagic.ai/cli/cm.mjs -o cm.mjs
+node cm.mjs call get_incoming_job
+```
+
+The scheduled workers need the same key in their own environment, so asking
+for it now is not wasted even if your own connection works.
+
 ## Step 1 · Which sources
 
 Call `get_incoming_job` to see what is already set up. Then ask what comes in
@@ -70,6 +93,10 @@ Ask who is worth a conversation, and write it down as the user says it. A good
 rule names who is in, who is out, and one or two examples of each. The fixer
 judges every unknown person against exactly this text, and the user reads the
 fixer's reason against it, so vague words here become vague proposals later.
+
+A rule is not a list of names. Verdicts the user already keeps on named
+companies belong under key accounts or on the board. The rule is what tells a
+worker what to do with a stranger.
 
 ## Step 4 · Key accounts
 
@@ -112,19 +139,16 @@ stale:
 - Fixer: *"Call `get_playbook` with name `incoming-fixer` on the Customer Magic
   connection and follow it."*
 
-**No Customer Magic connection in the scheduled environment?** Every step can
-be called with the one-file command-line client and a workspace API key that
-may write:
+**No Customer Magic connection in the scheduled environment?** A worker can
+make every call with the command-line client and the key from Step 0:
 
 ```
-curl -fsSL https://customermagic.ai/cli/cm.mjs -o cm.mjs
 node cm.mjs call get_playbook '{"name":"incoming-scout"}'
 node cm.mjs call start_incoming_run '{"role":"scout"}'
 ```
 
-The user creates the key under Settings → API keys. It belongs in the
-environment's secrets as `CUSTOMER_MAGIC_API_KEY`, never in a routine's
-instruction and never in a file in the repository.
+The key belongs in the environment's secrets as `CUSTOMER_MAGIC_API_KEY`,
+never in a routine's instruction and never in a file in the repository.
 
 If your harness cannot run anything on a schedule, say so plainly. The user
 can still say "run the scout" and "run the fixer" by hand; it is just not in
