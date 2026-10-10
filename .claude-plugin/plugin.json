@@ -1,8 +1,8 @@
 {
   "name": "customer-magic",
   "displayName": "Customer Magic",
-  "description": "Set up your revenue sources — inbox, calendar, CRM and billing — in the agent you already work in, verifying each connection actually returns your real data. Includes the Customer Magic connection, so opportunities you find persist between sessions instead of dying with the chat.",
-  "version": "0.1.0",
+  "description": "Set up your revenue sources in the agent you already work in, then run your pipeline from it: seven playbooks for importing a list, keeping a CRM in step, closing out an event, working today's follow-ups, logging a call, the weekly review and handing deals over. Includes the Customer Magic connection, so the work persists between sessions instead of dying with the chat.",
+  "version": "0.2.0",
   "author": {
     "name": "Ben Sufiani",
     "url": "https://customermagic.ai"

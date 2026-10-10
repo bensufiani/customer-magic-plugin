@@ -248,7 +248,7 @@ If it is genuinely missing — they installed the skill file on its own — the
 address is the same everywhere:
 
 ```
-https://customermagic.ai/api/mcp
+https://customermagic.ai/mcp
 ```
 
 Add it however your harness adds an HTTP MCP server or custom connector. The

@@ -14,6 +14,16 @@ sessions instead of dying with the chat.
   time, and checks each one actually returns your real data before moving on.
   That check is the step everybody skips, and it's why most setups quietly
   produce confident nonsense.
+- **Seven playbooks** — jobs your assistant runs on your Customer Magic board,
+  each started with one sentence:
+  [bring a list in](https://customermagic.ai/playbooks/import-a-list),
+  [keep a CRM in step](https://customermagic.ai/playbooks/crm-sync),
+  [work today's list](https://customermagic.ai/playbooks/daily-run),
+  [after a conversation](https://customermagic.ai/playbooks/after-a-conversation),
+  [weekly review](https://customermagic.ai/playbooks/weekly-review),
+  [close out an event](https://customermagic.ai/playbooks/event-close-out),
+  [hand over deals](https://customermagic.ai/playbooks/hand-over).
+  Each one shows you what it is about to do before it writes anything.
 - **The Customer Magic connection** — so the opportunities you find are held
   somewhere, ranked, and still there tomorrow.
 
@@ -50,8 +60,8 @@ something you can check from memory, before anything else is added.
 ## Read it first
 
 You should read anything you install into an agent that can see your inbox.
-It's one plain markdown file:
-[`skills/customer-magic-setup/SKILL.md`](skills/customer-magic-setup/SKILL.md).
+Every skill is one plain markdown file under [`skills/`](skills/), starting
+with [`customer-magic-setup/SKILL.md`](skills/customer-magic-setup/SKILL.md).
 
 It connects nothing on your behalf, asks for read-only access wherever the
 vendor offers it, and never asks you to paste a password.
