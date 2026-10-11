@@ -40,6 +40,9 @@ For each source, follow its `how` and read what is new since its `cursor`. If
 the cursor is empty, this is the first run: take the last seven days, not the
 whole history.
 
+Always read **oldest first**. The cap may stop you part-way, and what you
+filed has to be one unbroken stretch from the cursor onwards.
+
 If a source cannot be read, do not guess and do not stop the run. Carry on
 with the others and say which one failed in the note at the end.
 
@@ -47,13 +50,13 @@ with the others and say which one failed in the note at the end.
 
 | Field | What goes in |
 | -- | -- |
-| `fingerprint` | The kind and the source's own ids: `signup:usr_81`, `registration:evt_4:usr_81`. Never a name or an address. The same entry must always produce the same fingerprint. |
+| `fingerprint` | The kind, then the person's id in the source, then anything else: `signup:usr_81`, `registration:usr_81:evt_4`. Never a name or an address. The same entry must always produce the same fingerprint. The person's id comes second so that everything about one person can be removed in one call when their account is deleted. |
 | `sourceKey` | The source's `key` from the job |
 | `kind` | The source's `kind` |
 | `personName`, `email` | As the source has them |
 | `company` | Only if the source states it. Do not derive one from an address. |
 | `what` | One sentence a person can read: "Registered for Vibe Coding Cologne on 22 Oct." |
-| `occurredAt` | When it happened |
+| `occurredAt` | When it happened, with its time zone: `2026-10-09T19:02:58Z`. The form a database prints (`2026-10-09 19:02:58+00`) is read too. |
 
 Leave out anything the never-list excludes. If it says not to use what someone
 answered, `what` says only that they took part.
@@ -64,8 +67,13 @@ Call `file_findings`, at most 100 per call. Filing the same thing twice is
 safe: a fingerprint already in the workspace is not filed again.
 
 If the answer shows `overCap` above zero, stop filing. Those entries are not
-lost: do not move that source's cursor past the first one that did not fit, and
-the next run picks them up.
+lost: set that source's cursor to the last entry that **was** filed, and the
+next run picks up from there. A first run often meets this: seven days can
+hold more than one run's cap, and it then takes a few runs to catch up. That
+is the cap working, not a fault.
+
+If a result carries a `warning`, the finding was filed without the field it
+names. Put the warning in the note at the end.
 
 ## Step 5 · Finish
 

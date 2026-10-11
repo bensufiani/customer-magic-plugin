@@ -107,6 +107,24 @@ A rule is not a list of names. Verdicts the user already keeps on named
 companies belong under key accounts or on the board. The rule is what tells a
 worker what to do with a stranger.
 
+## Step 3b · How long people are kept, and how they are removed
+
+Tell the user the three rules, and change the first if they want it shorter:
+
+1. **A closed item keeps the person's details for seven days**, so a decision
+   can be undone and the fixer's work checked. Then the name, the address and
+   what they did are removed; only what stops it being filed again remains.
+   `save_incoming_job` with `keepDecidedDays` sets it, from 0 (removed the
+   moment it closes, no undo) to 30.
+2. **An item nobody decides is closed and emptied after thirty days.** This is
+   fixed.
+3. **When an account is deleted in a source**, the person has to leave the
+   queue too. Call `erase_person` with their address, or with the fingerprint
+   prefix (`signup:usr_81`). If a source has a deletion event the scout can
+   read, write that into the source's `how` so the scout does it on each run.
+   Deals already on the board are not touched; the answer says how many carry
+   the address.
+
 ## Step 4 · Key accounts
 
 Ask which companies or people no process should ever act on: the big
@@ -195,6 +213,12 @@ Tell them, in four lines:
 - **A worker shows no last run** — it did not start, or started without the
   Customer Magic connection. Check its environment before its instructions.
 - **Everything is "already filed"** — good: nothing is new since last time.
+- **Nobody is ever "already on the board"** — the board has nothing to match
+  on. Customer Magic matches a person by their address on a deal (an email
+  link), by name and company together, or by the company's website on a deal
+  against the address's domain. A board of names alone matches nobody. Tell
+  the user; adding the address or the company website to their deals is what
+  fixes it, and that is their board to change.
 - **The inbox grows and nothing is proposed** — the fixer is not running.
 - **The user wants to stop everything** — the pause switch on the Incoming
   screen stops both workers at their next start.
