@@ -77,10 +77,19 @@ For each one, find out and write down:
 access first. Ask for read-only access, and for a key or connection that is not
 the user's personal login where the system offers one.
 
-## Step 2 · What may not be used
+## Step 2 · What may be sent, and what may not be used
 
-Ask this before anything is filed: was any of this data given for a different
-purpose? Answers in a live questionnaire are the usual case. People gave them
+Two questions, both before anything is filed.
+
+**May Customer Magic receive these people at all?** Filing a finding sends a
+name and an address to Customer Magic, for everyone the source shows, not only
+the ones who turn out to matter. If the workspace belongs to a different
+company than the one that collected the data, that is a transfer to a second
+company, and the user may need it in their records or in an agreement first.
+Ask. Do not decide it for them, and do not file anyone until they have
+answered.
+
+**Was any of it given for a different purpose?** Answers in a live questionnaire are the usual case. People gave them
 in a session, not to a sales process.
 
 Unless the user confirms they may be used, file only the **fact** that someone
@@ -117,7 +126,15 @@ for each is a sensible start; the fixer an hour or two after the scout.
 
 Call `start_incoming_run` with `role: "scout"` and `trial: true`. Read what is
 new from each source for the last few days and call `file_findings`. Nothing
-is written. Show the user the result as a table: who, what happened, and where
+is written.
+
+A trial writes nothing, but it still **sends** what you pass. Until the user
+has answered the first question in Step 2, rehearse without identities: for
+each person pass `emailHash` (the SHA-256, in hex, of the trimmed, lower-cased
+address) and `domain` instead of `email`, and leave the name out. That is
+enough for Customer Magic to say who is already on the board, who was dropped
+and who is a key account. You fill in the names on your side when you show the
+table. Show the user the result as a table: who, what happened, and where
 each would go — straight to them, proposed as a note on a deal, proposed as
 ignore, or to the fixer.
 
