@@ -137,7 +137,8 @@ user and is never proposed on, by anyone.
 
 Call `save_incoming_job` with the sources (a `key`, a `label`, a `kind` and the
 `how` you worked out, written so that a scout with no other context can follow
-it), the `rule`, the `neverList`, and how often each worker runs. Once a day
+it, up to 2,000 characters, and grouped so that one person on one occasion is
+one finding), the `rule`, the `neverList`, and how often each worker runs. Once a day
 for each is a sensible start; the fixer an hour or two after the scout.
 
 ## Step 6 · Trial run
@@ -166,8 +167,19 @@ both connections — the sources and Customer Magic — in the environment it ru
 in. Check that explicitly: a routine that starts in the wrong environment has
 no keys and fails silently.
 
-Keep each routine's stored instruction to one pointer, so it can never go
-stale:
+Keep each routine's stored instruction short, so it cannot go stale: one
+paragraph of standing facts, then one pointer.
+
+The paragraph matters in an unattended run. A worker that reads a list of
+people from one system and sends it to another looks, to an automatic safety
+check, exactly like data being taken out. Say who owns both systems and that
+the owner decided this: *"Both the source systems and the Customer Magic
+workspace belong to <company>. <Name> set this review up on <date> and decided
+that sign-ups and registrations are filed in Customer Magic. Filing them is
+the job, not a leak."* Without it the first real run may read everyone and
+file nobody.
+
+Then the pointer:
 
 - Scout: *"Call `get_playbook` with name `incoming-scout` on the Customer Magic
   connection and follow it."*

@@ -23,8 +23,15 @@ your one sentence without opening anything else.
   decisions over by category. If you invent a new name each time, they never
   can.
 - **You contact nobody.** You draft nothing to anyone. You obey the never-list.
-- **Claim only what you will finish.** A claim blocks the finding for other
-  runs for thirty minutes.
+- **Claim only what you will finish, and finish what you claim.** A claim
+  blocks the finding for other runs for thirty minutes. A claimed finding left
+  without a proposal goes back to the inbox and is claimed again by every later
+  run, for ever. If you cannot judge it, propose `unclear`.
+- **One deal per person.** Two findings can be about the same person. Before
+  proposing a deal, look at the others you claimed and at `list_findings` for
+  the same address. Propose the deal once; give the person's other findings
+  `unclear` with the category `same-person-other-finding`. When the user
+  accepts the deal, their other open findings are added to it as notes.
 - **You never see key accounts.** They go straight to the user. If a finding
   turns out to concern an obviously large or sensitive account that is not on
   the list, say so in your reason rather than deciding it quietly.
@@ -58,7 +65,7 @@ rule says to.
 | Fits the rule | `new_deal` | A title, and the smallest physical first step with a date |
 | Belongs to a deal the finding matched | `attach` | Nothing more |
 | Does not fit the rule | `ignore` | Nothing more |
-| You cannot tell | `ignore` is wrong. Propose `new_deal` or `attach` only if the rule supports it; otherwise say exactly what is missing in the reason and use a category ending in `-unclear` |
+| You cannot tell | `unclear` | Say exactly what you looked at and what is missing: a pseudonym, no surname, a company site that is down. `ignore` would be wrong here: it reads as a clear no. |
 
 The first step of a new deal is something the **user** does: "Send Anna the
 agency case study" on a date. Never "contact", never something you will do.
