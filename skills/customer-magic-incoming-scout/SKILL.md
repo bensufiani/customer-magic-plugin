@@ -46,13 +46,14 @@ filed has to be one unbroken stretch from the cursor onwards.
 If a source cannot be read, do not guess and do not stop the run. Carry on
 with the others and say which one failed in the note at the end.
 
-## Step 3 · Build one finding per person per occasion
+## Step 3 · Build one finding per person per day
 
 A finding is something a person can decide on, not a row in a table. Someone
 who registers for nine dates of a series is one finding ("Registered for 9
 dates of …"), not nine. Someone who creates an account only to register is
-one finding, the registration. Group in the source's own query where you can,
-per person and day, and let the source's `how` say so.
+one finding, the registration. Someone in two rooms on one evening is one
+finding. Unless a source's `how` says otherwise, the unit is one person, one
+source, one day. Group in the source's own query where you can.
 
 | Field | What goes in |
 | -- | -- |

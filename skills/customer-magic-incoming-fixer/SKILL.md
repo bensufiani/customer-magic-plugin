@@ -30,8 +30,10 @@ your one sentence without opening anything else.
 - **One deal per person.** Two findings can be about the same person. Before
   proposing a deal, look at the others you claimed and at `list_findings` for
   the same address. Propose the deal once; give the person's other findings
-  `unclear` with the category `same-person-other-finding`. When the user
-  accepts the deal, their other open findings are added to it as notes.
+  `unclear` with exactly the category `same-person-other-finding`. Such a
+  finding is not shown to the user as a card of its own: it follows the
+  person's other card and closes with whatever the user decides there. Use it
+  whatever you proposed on the main one, a deal, a note or ignore.
 - **You never see key accounts.** They go straight to the user. If a finding
   turns out to concern an obviously large or sensitive account that is not on
   the list, say so in your reason rather than deciding it quietly.
