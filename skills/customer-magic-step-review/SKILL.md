@@ -18,8 +18,11 @@ You run on a timer with nobody watching. You propose; the user decides.
 
 ## Rules
 
-- **Three answers, no others.** `push` the date, `drop` the deal, or `keep` it
-  overdue.
+- **Four answers, no others.** `push` the date, `replace` the step, `drop` the
+  deal, or `keep` it overdue.
+- **A drop is about the deal, not the step.** A customer whose kickoff has
+  happened is not dropped because the kickoff step is stale. That is a
+  `replace`.
 - **You never drop a deal yourself.** A drop always waits for the user, even in
   a kind of case they handed over.
 - **You contact nobody**, and you draft nothing to anyone.
@@ -39,19 +42,28 @@ Call `start_incoming_run` with `role: "reviewer"`. If it answers `paused`, stop.
 
 ## Step 2 · Get the overdue steps
 
-Call `list_overdue_steps`. Skip every step where `alreadyProposed` is true: a
-proposal for it is already waiting, or the user decided it and it has not
-moved since.
+Call `list_overdue_steps`. Each step comes with its deal: the person, the
+company, where the deal stands and its last three events. Steps on deals that
+are won or dropped are not listed. Skip every step where `alreadyProposed` is
+true: a proposal for it is already waiting, or the user decided it and it has
+not moved since.
 
 If there are more than forty, take the forty oldest. The next run takes the
 rest.
 
-## Step 3 · Read each deal
+## Step 3 · Read each deal, then the thread behind it
 
-For each step, read the deal and what happened on it lately
-(`list_opportunities`, `list_recent_activity`). If you can see the user's
-inbox or calendar, look there too: a reply that arrived yesterday changes the
-answer.
+The three events on each step are a start. Read more where they do not settle
+it (`list_recent_activity`, `list_opportunities`).
+
+Then open the mail thread, if you can reach the user's inbox and the deal
+names one or names an address. This is where most of the answer is. A board
+full of single cold mails looks the same on every card; the thread shows which
+three got a reply the user has not answered. An unanswered reply is never a
+`push` or a `drop`: it is a `keep`, and the reason says who is waiting.
+
+If you cannot reach the inbox, say so once in the run's note. Your proposals
+are then guesses from the board alone, and the user should know that.
 
 ## Step 4 · Decide what to propose
 
@@ -59,13 +71,15 @@ answer.
 | -- | -- | -- |
 | Still the right step, and nothing stops the user doing it | `push` | A date within the next two weeks. Spread them: not forty steps on one Monday. |
 | The step waits on someone else who has not answered | `push` | A date that matches when an answer is realistic, and say who it waits on |
+| The deal is alive but the step is not the step any more: the call, session or go-live it prepared has happened | `replace` | The new step as `title`, a date, and what happened to the old one |
 | Two or more attempts, no answer, nothing new for weeks | `drop` | The reason, in one sentence the user can check against the history |
-| The occasion has passed (an event, a deadline, a role that is filled) | `drop` | What passed, and when |
+| The occasion has passed and the deal has no other life (a cold contact from one event, a role that is filled) | `drop` | What passed, and when. For a customer or anyone still in conversation this is a `replace`. |
 | Something happened in the last few days (a reply, a booked call) | `keep` | What happened. The user should look at this one today. |
 | You cannot tell | `keep` | Say what is missing. Never guess a drop. |
 
 Categories that work: `overdue-still-to-do`, `overdue-waiting-on-them`,
-`overdue-no-reply-twice`, `overdue-occasion-passed`, `overdue-something-happened`.
+`overdue-no-reply-twice`, `overdue-occasion-passed`, `overdue-something-happened`,
+`overdue-step-outdated-deal-alive`.
 Reuse the ones the workspace already has: `get_incoming_job` lists them.
 
 ## Step 5 · Propose
@@ -97,7 +111,11 @@ Run it once by hand and read its log before leaving it to the timer.
 ## When something goes wrong
 
 - **`not_overdue`** — the step's date has not passed. Leave it.
-- **`no_date`** — a push needs a date in the future.
+- **`no_date`** — a push or a replacement needs a date in the future.
+- **`no_title`** — a replacement needs the new step in a few words.
+- **`deal_closed`** — the deal is already won or dropped. Leave it.
+- **A job is delivered and paid, and the deal is still open** — say so in a
+  `keep`. Closing a deal as won is the user's to do.
 - **`not_found`** — the step was completed or its deal changed owner while you
   worked. Leave it.
 - **The user decides a card and it says the step changed** — they dealt with
