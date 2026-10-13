@@ -87,7 +87,7 @@ Reuse the ones the workspace already has: `get_incoming_job` lists them.
 Call `propose_step` once per step, with the action, the category and a reason
 of one or two sentences the user can check against the deal. If the answer
 says `carriedOut: true`, the user handed that kind of case over and it is done.
-Otherwise it waits for them in **Incoming**, shown only to them.
+Otherwise it waits for them in **Review**, shown only to them.
 
 ## Step 6 · Finish
 

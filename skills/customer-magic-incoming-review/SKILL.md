@@ -128,7 +128,7 @@ Tell the user the three rules, and change the first if they want it shorter:
 ## Step 4 · Key accounts
 
 Ask which companies or people no process should ever act on: the big
-customers, the sensitive ones. The user adds them under **Incoming → Key
+customers, the sensitive ones. The user adds them under **Review → Key
 accounts** in the app (give them the `incomingUrl` that `get_incoming_job`
 returns). Anything about a key account goes straight to the
 user and is never proposed on, by anyone.
@@ -212,8 +212,9 @@ Do not leave before both have run once for real.
 Tell them, in four lines:
 
 1. what runs, and when
-2. where their decisions wait: **Incoming** in the app, and a line in the
-   morning mail
+2. where their decisions wait: they can say "let's go through my review" to
+   their assistant at any time (the `review-with-me` playbook), or use
+   **Review** in the app; a line in the morning mail says how many wait
 3. that every proposal comes to them first, and how to hand a kind of decision
    over once the proposals keep being right
 4. that the mail tells them if a worker stops running
@@ -232,5 +233,5 @@ Tell them, in four lines:
   the user; adding the address or the company website to their deals is what
   fixes it, and that is their board to change.
 - **The inbox grows and nothing is proposed** — the fixer is not running.
-- **The user wants to stop everything** — the pause switch on the Incoming
+- **The user wants to stop everything** — the pause switch on the Review
   screen stops both workers at their next start.
