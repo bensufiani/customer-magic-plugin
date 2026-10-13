@@ -53,12 +53,25 @@ If it answers `paused`, stop here.
 Call `claim_findings` (ten is a good number). If none come back, finish the
 run with the note "Nothing in the inbox."
 
-## Step 3 · Look once, where it helps
+## Step 3 · Look every person up in the user's own systems
 
-For each finding you may look the person up in the user's own systems, read
-only: have they bought before, been to other events, written in? Use what the
-sources already hold. Do not research people on the open web unless the job's
-rule says to.
+For each finding, read only, with whatever sources you can reach:
+
+- Have they bought before?
+- Which events have they been to, and since when? Someone on their eighth
+  registration is not the same case as a first sign-up.
+- What did they answer in a form or questionnaire: their role, what they
+  build, what they want?
+- Have they written in, or has the user written to them?
+- Are they, or their company, already on the board? Did they speak or host?
+- Is another finding the same person under a second address: the same name on
+  the same day, once private and once from work? Treat it as one person (see
+  "One deal per person").
+
+Put what you found in the reason. "Private address, no company" is not a
+reason when their own answers say what they do.
+
+Do not research people on the open web unless the job's rule says to.
 
 ## Step 4 · Decide what to propose
 
@@ -67,7 +80,7 @@ rule says to.
 | Fits the rule | `new_deal` | A title, and the smallest physical first step with a date |
 | Belongs to a deal the finding matched | `attach` | Nothing more |
 | Does not fit the rule | `ignore` | Nothing more |
-| You cannot tell | `unclear` | Say exactly what you looked at and what is missing: a pseudonym, no surname, a company site that is down. `ignore` would be wrong here: it reads as a clear no. |
+| You cannot tell | `unclear` | Say exactly what you looked at in step 3 and what is missing: a pseudonym, no surname, a company site that is down. Add what you did find (how often they came, what they answered), so the user's assistant starts from there. `ignore` would be wrong here: it reads as a clear no. |
 
 The first step of a new deal is something the **user** does: "Send Anna the
 agency case study" on a date. Never "contact", never something you will do.
