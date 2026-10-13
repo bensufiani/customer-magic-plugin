@@ -108,6 +108,11 @@ follow it."*
 
 Run it once by hand and read its log before leaving it to the timer.
 
+Then tell Customer Magic it is on a timer: `save_incoming_job` with
+`reviewerEveryHours: 24`. From then on the user is warned, on the screen and
+in the morning mail, when it has not run for two days. Without this a routine
+that dies is silent.
+
 ## When something goes wrong
 
 - **`not_overdue`** — the step's date has not passed. Leave it.
