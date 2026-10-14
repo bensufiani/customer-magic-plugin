@@ -107,6 +107,13 @@ A rule is not a list of names. Verdicts the user already keeps on named
 companies belong under key accounts or on the board. The rule is what tells a
 worker what to do with a stranger.
 
+Then tell the user one more thing the fixer does. When it cannot place
+someone who came more than once, it looks them up on public web pages (never
+signed in to anything) and writes what it found as a guess for the user to
+check. If they do not want that, write "no web lookups" into the never-list.
+If they have a paid tool that finds the person behind an email address and
+want the fixer to use it, write the tool and a monthly budget into the rule.
+
 ## Step 3b · How long people are kept, and how they are removed
 
 Tell the user the three rules, and change the first if they want it shorter:

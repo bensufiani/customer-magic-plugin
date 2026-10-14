@@ -68,10 +68,43 @@ For each finding, read only, with whatever sources you can reach:
   the same day, once private and once from work? Treat it as one person (see
   "One deal per person").
 
-Put what you found in the reason. "Private address, no company" is not a
-reason when their own answers say what they do.
+Put what you found in the reason: what the person does and how often they
+came. "Private address, no company" is not a reason when their own answers
+say what they do. Do not quote their answers in the reason unless the
+never-list allows answers to be used; say what they do in your own words.
 
-Do not research people on the open web unless the job's rule says to.
+## Step 3b · The open web, for regulars you cannot place
+
+On the first real run (13 Oct 2026), the most valuable people in the inbox
+were the ones the fixer could not place: a private address, no company, three
+events in a week. One of them was a board member at a company already on the
+user's board. So look further, within these limits, all of them:
+
+- **Only someone you would otherwise propose `unclear` for**, after step 3.
+  Never to judge someone you can already place.
+- **Only someone who came more than once**: two or more sign-ups,
+  registrations or visits in the user's own systems. One visit is not worth
+  looking a private person up for.
+- **Never when the never-list says no web lookups**, and never anyone the
+  never-list names.
+- **Public pages only.** A web search and the pages it finds. Never sign in to
+  anything, never use the user's browser or their accounts, never a
+  people-search site that sells personal data.
+- **A paid lookup** (a tool that finds the person behind an email address):
+  only when the user's rule names it and a monthly budget. Stay inside the
+  budget and say in the run's note what you spent.
+
+Search by name and the place the events are in, and by any company the
+address or their answers hint at. Stop after a few searches.
+
+**What you find is a guess until something ties it to their address**: their
+own answers, a company domain in the address, or the paid lookup. A match by
+name and place once put a stranger at the wrong company. Write it in the
+reason as a guess, with the page you read it on: "Possibly Jane Doe, head of
+sales at Acme in Cologne (the only one of that name there; not confirmed)."
+A guess never decides the proposal on its own: base the proposal on what is
+confirmed, and leave the guess for the user to check. If you found nothing,
+say where you looked.
 
 ## Step 4 · Decide what to propose
 
