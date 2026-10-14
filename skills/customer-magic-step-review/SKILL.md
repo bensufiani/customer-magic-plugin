@@ -85,7 +85,13 @@ Reuse the ones the workspace already has: `get_incoming_job` lists them.
 ## Step 5 · Propose
 
 Call `propose_step` once per step, with the action, the category and a reason
-of one or two sentences the user can check against the deal. If the answer
+of one or two sentences the user can check against the deal.
+
+When the step only works before a date (their event, the next session with a
+customer, a deadline), the reason starts with that date: "Their evening is on
+15 Oct; after that the hook is gone." When someone has been waiting on the
+user, it starts with who and for how long: "Christiane has waited seven weeks
+for the four paragraphs." The user's assistant brings these first. If the answer
 says `carriedOut: true`, the user handed that kind of case over and it is done.
 Otherwise it waits for them in **Review**, shown only to them.
 
