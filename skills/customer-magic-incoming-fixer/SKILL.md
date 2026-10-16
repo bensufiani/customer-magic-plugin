@@ -113,7 +113,8 @@ say where you looked.
 | Fits the rule | `new_deal` | A title, and the smallest physical first step with a date |
 | Belongs to a deal the finding matched | `attach` | Nothing more |
 | Does not fit the rule | `ignore` | Nothing more |
-| You cannot tell | `unclear` | Say exactly what you looked at in step 3 and what is missing: a pseudonym, no surname, a company site that is down. Add what you did find (how often they came, what they answered), so the user's assistant starts from there. `ignore` would be wrong here: it reads as a clear no. |
+| You cannot place them, but they came back: two or more sign-ups, registrations or visits, a paid ticket, or answers in a questionnaire | `new_deal`, category `returning-unplaced` | A title and a first step, and in the reason exactly what you could not place ("private address, no company found") next to what they did. Lean to the deal: a wrong one is ignored in one tap, a missed regular is a lost conversation. In the first real review, the user made 7 of 11 such people into deals. |
+| You cannot tell, and they came once | `unclear` | Say exactly what you looked at in step 3 and what is missing: a pseudonym, no surname, a company site that is down. Add what you did find (how often they came, what they answered), so the user's assistant starts from there. `ignore` would be wrong here: it reads as a clear no. |
 
 The first step of a new deal is something the **user** does: "Send Anna the
 agency case study" on a date. Never "contact", never something you will do.

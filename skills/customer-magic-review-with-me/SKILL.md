@@ -161,10 +161,21 @@ sentence; do not retry.
 ### 6. Close
 
 Three sentences at most: how many new deals are on the board, how many steps
-have a new date, what was left for later. If the user agreed with every
-proposal of one kind, tell them that the app offers to hand that kind over
-after ten in a row, on the Review screen. Handing over is theirs to do there;
-you cannot do it.
+have a new date, what was left for later.
+
+Then look at `handOver` from `list_review` (call it again: today's decisions
+count). For each kind that is `ready`, ask one question:
+
+> **Overdue, still to do: 5 in a row as proposed** (push the date). Let these
+> run without you from now on? You would see them in the morning mail, and
+> any of them can be undone.
+> ○ Yes, let them run (recommended) ○ Not yet
+
+On a yes, call `hand_over_kind` with that category and `alone`. Never for a
+kind that is not `ready`: say how far it is instead ("3 of 5"). A drop, an
+unclear case and a key account always still come to the user; say so if they
+ask. Only a workspace admin can hand over; the call says so if they are not
+one.
 
 If they regret something in the same conversation, `undo_review` takes it
 back.
@@ -176,5 +187,7 @@ back.
 - **`person_only`** — you are connected with a workspace API key. Keys are for
   scheduled workers and cannot decide. Tell the user to connect this assistant
   by signing in, or to decide on the Review screen.
+- **`not_earned`** from `hand_over_kind`: that kind has not gone as
+  proposed often enough in a row yet. Say how far it is.
 - **`billing`** — the workspace has no live subscription. Give them the
   billing link from the answer and stop.
