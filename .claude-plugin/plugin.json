@@ -2,7 +2,7 @@
   "name": "customer-magic",
   "displayName": "Customer Magic",
   "description": "Run your pipeline from the agent you already work in. A setup that connects and checks your inbox, calendar, sign-up source and CRM and remembers where it stopped; four commands (/customer-magic:setup, :review, :today, :status); nine playbooks for importing a list, keeping a CRM in step, closing out an event, today's follow-ups, logging a call, the weekly review, handing deals over, a background review of everything that comes in, and going through that review in a conversation; and three background workers that propose and never decide. Includes the Customer Magic connection, so the work persists between sessions.",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": {
     "name": "Ben Sufiani",
     "url": "https://customermagic.ai"
