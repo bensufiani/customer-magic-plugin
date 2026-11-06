@@ -53,6 +53,16 @@ If it answers `paused`, stop here.
 Call `claim_findings` (ten is a good number). If none come back, finish the
 run with the note "Nothing in the inbox."
 
+The inbox comes first. After it, `claim_findings` also hands you waiting cards
+whose proposal went out of date while the user had not decided them, marked
+`refresh: true` with the old proposal on them: a new deal whose first step's
+date has passed, or an `unclear` that has waited two weeks. Judge them again
+as of today, with everything below. Your proposal replaces the old one; the
+card stays in the user's review meanwhile, and if they decide it first, your
+proposal is refused as `not_yours`, which is fine. On 6 Nov 2026, 36 waiting
+deals started at events that were over, and taking them as proposed would
+have put 36 overdue steps on the board.
+
 ## Step 3 · Look every person up in the user's own systems
 
 For each finding, read only, with whatever sources you can reach:
@@ -114,10 +124,16 @@ say where you looked.
 | Belongs to a deal the finding matched | `attach` | Nothing more |
 | Does not fit the rule | `ignore` | Nothing more |
 | You cannot place them, but they came back: two or more sign-ups, registrations or visits, a paid ticket, or answers in a questionnaire | `new_deal`, category `returning-unplaced` | A title and a first step, and in the reason exactly what you could not place ("private address, no company found") next to what they did. Lean to the deal: a wrong one is ignored in one tap, a missed regular is a lost conversation. In the first real review, the user made 7 of 11 such people into deals. |
+| A refreshed card (`refresh: true`) that came once, was `unclear`, and nothing has come from them since: no sign-up, registration, visit or reply | `ignore`, category `one-time-signup-gone-quiet` | In the reason, when they came, what they did and that nothing came after. Two weeks of silence after one sign-up is the answer the `unclear` was waiting for. If anything new came from them, judge them afresh instead. |
 | You cannot tell, and they came once | `unclear` | Say exactly what you looked at in step 3 and what is missing: a pseudonym, no surname, a company site that is down. Add what you did find (how often they came, what they answered), so the user's assistant starts from there. `ignore` would be wrong here: it reads as a clear no. |
 
 The first step of a new deal is something the **user** does: "Send Anna the
 agency case study" on a date. Never "contact", never something you will do.
+
+**Its date is in the future**, and the occasion it names has not happened. An
+event the person registered for that is over is not a first step any more:
+take the next date they are registered for, or a short mail within the week
+that refers to the event. A date in the past is refused (`no_date`).
 
 ## Step 5 · Propose
 
@@ -145,6 +161,8 @@ you could not judge and why.
 - **`not_yours`** — the claim ran out and another run took it. Leave it.
 - **`nothing_to_attach_to`** — the finding matched no deal. Propose a new deal
   or ignore.
+- **`no_date`** — the first step of a new deal is dated in the past. Pick the
+  next real occasion and propose again.
 - **The rule does not cover a kind of person at all** — propose with a category
   ending in `-unclear` and say what the rule would need to say. The user sees
   that it keeps happening and fixes the rule.

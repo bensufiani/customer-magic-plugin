@@ -1,6 +1,6 @@
 ---
 name: customer-magic-setup
-description: Set up Customer Magic inside whatever AI harness the user works in (Claude Code, Claude Cowork, ChatGPT, Codex or another): connect their inbox, calendar, the place sign-ups arrive and their CRM one at a time, prove each one returns their real data, get three dated deals on the board, and switch on the background review. It remembers what is already done, so it continues where the last session stopped. Use this skill when the user says "set up Customer Magic", "continue the setup", "what is still missing", "what should I connect", "connect my inbox/calendar/CRM", "why doesn't my agent know about my customers", when a revenue question cannot be answered because a source is missing, and to re-check a setup that has started giving thin or wrong answers.
+description: Set up Customer Magic inside whatever AI harness the user works in (Claude Code, Claude Cowork, ChatGPT, Codex or another): first get three deals with a dated next step on their board from names they tell you, then connect their inbox, calendar, the place sign-ups arrive and their CRM one at a time, prove each one returns their real data, and switch on the background review. It remembers what is already done, so it continues where the last session stopped. Use this skill when the user says "set up Customer Magic", "continue the setup", "what is still missing", "what should I connect", "connect my inbox/calendar/CRM", "why doesn't my agent know about my customers", when a revenue question cannot be answered because a source is missing, and to re-check a setup that has started giving thin or wrong answers.
 ---
 
 # Setting up Customer Magic
@@ -32,6 +32,11 @@ does not explain what MCP is or argue that AI is useful.
 - **Use the mechanism of the harness you are in, and no other.** If you are
   unsure how a step is done here, say so and ask. `resources/harnesses.md` has
   one section per harness; read only yours.
+- **The board before any source.** On a new workspace the first ten minutes are
+  three deals with a dated next step, from names the person tells you. Never
+  send them to a terminal, a settings page or another app before that: in
+  Claude Code, adding Gmail means leaving the conversation and restarting it,
+  and a new user who is sent there first leaves with an empty board.
 - **A half-finished setup that gets used beats a complete one that felt like a
   wizard.** They may stop after any step.
 
@@ -56,8 +61,18 @@ list:
 > Your inbox is connected and checked, and the board has 12 deals. Next I
 > would connect your calendar, about three minutes. Go?
 
-On a first run, ask one thing before the first source, because it changes the
-order: what do they want out of this?
+**On a new workspace `next` is the board.** Ask, in the same message:
+
+> Who are three people you are talking to about buying from you right now? A
+> name, the company and one sentence each is enough.
+
+Create each deal with `create_opportunity`, propose one next step with a date
+per deal in the same reply, and set them with `set_next_action` once they
+agree. That is the first ten minutes. A spreadsheet or CRM export instead of
+names: `get_playbook` with `import-a-list`.
+
+Only once the board has its three deals, ask the one question that sets the
+order of the sources: what do they want out of this?
 
 - "Know who to contact this week": inbox, then calendar.
 - "Stop losing sign-ups and registrations": inbox, then where sign-ups arrive.
@@ -82,11 +97,16 @@ moves:
 For where sign-ups arrive, read `resources/signup-sources.md` first. It is the
 one source that is different for every business.
 
-The steps that are not sources point at their own playbook:
+If connecting a source means leaving this conversation (a settings page
+elsewhere, a restart), say what it adds and let them pick the moment. "Later"
+is an answer: record nothing, and carry on with what they came for.
 
-- Three dated deals: `get_playbook` with `import-a-list`.
-- The morning mail: theirs to confirm in the app; give them the link from
-  `get_started`.
+The steps that are not sources:
+
+- Three dated deals: the question in step 1; a file goes through
+  `get_playbook` with `import-a-list`.
+- The morning mail: theirs to confirm in the app, one button; give them the
+  link in `mailSettingsUrl`.
 - The background review and its timers: `get_playbook` with `incoming-review`.
   Run it with the person present. The scheduled runs it creates must sign in
   with a workspace API key, never with the person's own sign-in.
@@ -102,9 +122,9 @@ Call `get_setup` after every step and take the new `next`. Stop when:
 
 ### 4. Show them it works
 
-Once the inbox is proven and the board has deals, ask the question the setup is
-for: **"Who should I contact this week, and why each one?"** Answer it from the
-board and the inbox together. That answer is the proof, not the checklist.
+Once the board has deals, ask the question the setup is for: **"Who should I
+contact this week, and why each one?"** Answer it from the board, and from the
+inbox too once it is connected. That answer is the proof, not the checklist.
 
 ---
 

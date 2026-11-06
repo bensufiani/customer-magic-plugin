@@ -48,6 +48,13 @@ are won or dropped are not listed. Skip every step where `alreadyProposed` is
 true: a proposal for it is already waiting, or the user decided it and it has
 not moved since.
 
+A step with `refresh: true` has a proposal waiting that went out of date
+before the user decided it: the date it proposed has passed, or it said "look
+today" a week ago. Propose it again, as of today, like any other: your
+proposal replaces the waiting one on the same card. Take these with the
+others, oldest first. (On 6 Nov 2026 every one of 45 waiting pushes and
+replacements proposed a date that had passed.)
+
 If there are more than forty, take the forty oldest. The next run takes the
 rest.
 

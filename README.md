@@ -10,8 +10,10 @@ sessions instead of dying with the chat.
 
 ## What's in it
 
-- **A setup that remembers.** It connects your inbox, calendar, the place your
-  sign-ups arrive and your CRM one at a time, and checks each one against
+- **A setup that remembers.** It starts with your first three deals, from
+  names you tell it: no list, no export, nothing to connect first. Then it
+  connects your inbox, calendar, the place your sign-ups arrive and your CRM
+  one at a time, and checks each one against
   something you know from memory before moving on. What is done is written
   down in Customer Magic, so the next session continues instead of starting
   over. A source you said no to is not raised again.

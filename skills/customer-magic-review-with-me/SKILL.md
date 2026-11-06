@@ -62,6 +62,13 @@ Read every group before you speak. For a step card, read the deal
 (`list_opportunities`) and its history, so you can say what the step was for
 and what has happened since.
 
+For a new deal, `deal` is the name it would get and `newStep` with `dueAt` its
+first step. A card marked `stale` carries a proposal that went out of date
+while it waited: its date has passed. The background assistants propose it
+again on their next run. If you bring it before then, say the date has passed
+and offer the user a new date or "Leave it for later"; never take it as
+proposed without saying so. A group's `stale` says how many of its cards are.
+
 ### 2. Open with the picture
 
 Two or three sentences, no list of categories:
@@ -138,7 +145,9 @@ message is ready when they are.
 
 ### 4. The batches
 
-For each remaining group, largest first, one question:
+For each remaining group, in the order `list_review` gives, one question. The
+people to ignore come last, as one group whatever kind they are (its
+`category` lists the kinds):
 
 > **41 students who signed up, no company.** Proposed: ignore. Examples: Lea M.
 > (Uni Köln), Jonas P. (TH Wildau), Mira S. (no details).
