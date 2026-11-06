@@ -58,6 +58,12 @@ in batches, and do what they say. You are the interface.
 
 Call `list_review`. If nothing waits, say so in one sentence and stop.
 
+It counts every card but stays short: whole cards only up to ten for a
+group to look at one by one, three short `examples` for a batch, and `more`
+for how many are not shown. To work a group, call it again with the group's
+`key` as `group`: it comes in pages of 50, the size of one `decide_review`
+call, with the page's `ids`; ask for the next with `offset`.
+
 Read every group before you speak. For a step card, read the deal
 (`list_opportunities`) and its history, so you can say what the step was for
 and what has happened since.
@@ -158,7 +164,11 @@ people to ignore come last, as one group whatever kind they are (its
   systems as in step 3. If any card stands out (a known company, a senior
   title, a past buyer, a regular, a person already on the board), pull it out
   and bring it alone before the batch.
-- "Show me them first": list them compactly, one line each, then ask again.
+- "Show me them first": call `list_review` with the group's `key`, list them
+  compactly, one line each, then ask again.
+- A batch larger than 50 goes page by page: one answer from the user covers
+  the whole batch, and you send each page's `ids`, then ask for the next
+  page with `offset`. Pull out anyone who stands out on a page, as above.
 - Send a batch to `decide_review` in calls of up to 50.
 
 ### 5. Read the results

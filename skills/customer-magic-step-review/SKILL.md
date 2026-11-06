@@ -38,7 +38,7 @@ You run on a timer with nobody watching. You propose; the user decides.
 
 ## Step 1 · Start the run
 
-Call `start_incoming_run` with `role: "reviewer"`. If it answers `paused`, stop.
+Call `start_incoming_run` with `role: "reviewer"`. If it answers `paused` or `runs_on_server`, stop. `runs_on_server` means the overdue review now runs on Customer Magic's own servers in this workspace; your routine is the spare.
 
 ## Step 2 · Get the overdue steps
 
@@ -123,7 +123,7 @@ Run it once by hand and read its log before leaving it to the timer.
 
 Then tell Customer Magic it is on a timer: `save_incoming_job` with
 `reviewerEveryHours: 24`. From then on the user is warned, on the screen and
-in the morning mail, when it has not run for two days. Without this a routine
+in the morning mail, when it has not run for over a day. Without this a routine
 that dies is silent.
 
 ## When something goes wrong

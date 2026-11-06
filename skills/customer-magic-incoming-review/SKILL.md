@@ -208,6 +208,26 @@ If your harness cannot run anything on a schedule, say so plainly. The user
 can still say "run the scout" and "run the fixer" by hand; it is just not in
 the background.
 
+**Or run them on Customer Magic's servers.** Instead of (or as well as) the
+routines, a workspace admin can switch each worker to Customer Magic's own
+servers on the Review screen (How the background review is set up → Where it
+runs). It then runs every night without the user's laptop or assistant, and
+only ever proposes. Offer it when the user's harness has no scheduler, or when
+a routine has died before. Two differences to say out loud:
+
+- On the servers the fixer and the overdue review see only what Customer Magic
+  holds: no inbox, no CRM, no web lookups.
+- The scout needs, per source, a `query` you save with `save_incoming_job`
+  (one Postgres `select`, `$1` is the stopping point, oldest first, returning
+  exactly `fingerprint, person_name, email, company, what, occurred_at`, one
+  row per person per occasion), and a **read-only** connection the admin pastes
+  on the Review screen. You cannot store the connection yourself. Help the user
+  create a read-only role for it; never a personal access token or an owner
+  password.
+
+While a worker runs on the servers, its routine gets `runs_on_server` from
+`start_incoming_run` and stops. That is correct: the routine is the spare.
+
 ## Step 8 · Fire each once and read the log
 
 Run the scout once by hand, then the fixer. Read each run's own log, then call

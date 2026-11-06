@@ -46,12 +46,17 @@ Call `start_incoming_run` with `role: "fixer"`. It returns the run id, the
 user's rule, the never-list, the categories used so far and which of them the
 user has handed over.
 
-If it answers `paused`, stop here.
+If it answers `paused` or `runs_on_server`, stop here. `runs_on_server` means this worker now runs on Customer Magic's own servers in this workspace; your routine is the spare.
 
 ## Step 2 · Claim
 
 Call `claim_findings` (ten is a good number). If none come back, finish the
 run with the note "Nothing in the inbox."
+
+When this run can settle what an earlier one could not (the rule changed,
+or you can reach the web and an earlier run could not), call `claim_findings`
+with `retryUnclear: true` once the inbox is empty: it hands back waiting
+`unclear` cards of any age, never ones this run proposed on.
 
 The inbox comes first. After it, `claim_findings` also hands you waiting cards
 whose proposal went out of date while the user had not decided them, marked
@@ -94,7 +99,12 @@ user's board. So look further, within these limits, all of them:
   Never to judge someone you can already place.
 - **Only someone who came more than once**: two or more sign-ups,
   registrations or visits in the user's own systems. One visit is not worth
-  looking a private person up for.
+  looking a private person up for — **unless the user's rule asks for a web
+  check before `ignore`.** Then the rule wins: look a one-time visitor up the
+  way it says (the same few searches, public pages only), and propose
+  `ignore` with what you looked at, or a deal if you found a fit. Leaving them
+  `unclear` because this list forbade the check the rule asked for hands the
+  user every one of them to look at alone: on 6 Nov 2026 that was 120 cards.
 - **Never when the never-list says no web lookups**, and never anyone the
   never-list names.
 - **Public pages only.** A web search and the pages it finds. Never sign in to

@@ -32,7 +32,7 @@ decides after that.
 Call `start_incoming_run` with `role: "scout"`. It returns the run id, the
 sources with where each stopped, the never-list and the cap.
 
-If it answers `paused`, stop here. Do nothing else.
+If it answers `paused` or `runs_on_server`, stop here. Do nothing else. `runs_on_server` means this worker now runs on Customer Magic's own servers in this workspace; your routine is the spare.
 
 ## Step 2 · Read each source
 
